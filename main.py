@@ -39,7 +39,7 @@ class SendMessageForm(FlaskForm):
 def homepage():
     contact_form = SendMessageForm()
     if contact_form.validate_on_submit():
-            with smtplib.SMTP('smtp.gmail.com') as connection:
+            with smtplib.SMTP('smtp.gmail.com', 587) as connection:
                 connection.starttls()
 
                 sender = clean_input(contact_form.name.data)
